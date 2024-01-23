@@ -36,7 +36,7 @@ const Main = () => {
         <div className='Main'>
             <BrowserRouter>
                 <Routes>
-                    {identificateKey ? <Route index element={<Container />} /> : <div></div>}
+                    {identificateKey ? <Route index element={<Container />} /> : null}
                     <Route index element={<Container />} />
                     <Route path="/rating" element={<Rating />} />
                 </Routes>
