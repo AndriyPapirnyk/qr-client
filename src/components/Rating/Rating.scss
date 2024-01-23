@@ -1,0 +1,37 @@
+@import '../../scss/mixins.scss';
+
+.rating{
+    @include center();
+    @include block(100vh);
+    flex-direction: column;
+    .text_head{
+        @include text(40px, #fff, 700)
+    }
+    .users{
+        @include center();
+        flex-direction: column;
+        width: 100%;
+        .blockUser{
+            @include row();
+            width: 80%;
+            margin: 10px 0;
+            height: 70px;
+            background-color: #ffffff99;
+            border-radius: 5px;
+            justify-content: space-between;
+            padding: 0 20px;
+            .number{
+                @include text(25px, #111, 700);
+            }
+            .name{
+                @include text(25px, #111, 300);
+            }
+            .id{
+                @include text(25px, #111, 700);
+            }
+            .points{
+                @include text(25px, #111, 700);
+            }
+        }
+    }
+}
