@@ -1,11 +1,20 @@
-
+import { useNavigate } from 'react-router';
 import './Container.scss';
 
 
 import image from './Image/QRCode.png'
 const Container = () => {
+
+    const navigate = useNavigate();
+
+    const getRatingPage = () => {
+        navigate('/rating');
+    }
+
+
     return (
         <div className='container'>
+            <button onClick={getRatingPage}>Rating</button>
             <div className='container__first-block'>
                 <div className="container__first-block_image" >
                     <img src={image} alt="QR Code" />
