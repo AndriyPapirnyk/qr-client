@@ -88,7 +88,7 @@ const AdminHistory: FC = () => {
     const historyCards = arr.slice(startIndex, endIndex);
 
 
-    const pageChange = (e: React.ChangeEvent<unknown>, value: number) => {
+    const pageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage(value)
     }
 
