@@ -1,8 +1,9 @@
 
 import './Container.scss';
 import { Link } from 'react-router-dom';
-import image from './Image/QRCode.png'
+
 import Header from '../Header/Header';
+import image from './Image/QECode.png'
 const Container = () => {
     return (
 
