@@ -1,0 +1,23 @@
+@import '../../scss/mixins.scss';
+
+.header {
+    @include block(8vh);
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+    padding-right: 17px;
+
+}
+
+.header__user {
+    @include center;
+    width: 45px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #ffffff99;
+
+    p {
+        @include text(22px, black, 700);
+    }
+}
