@@ -1,7 +1,7 @@
 
 import './Container.scss';
 import { Link } from 'react-router-dom';
-import image from './Image/QRCode.png'
+import image from './Image/QECode.png'
 const Container = () => {
     return (
         <div className='container'>
