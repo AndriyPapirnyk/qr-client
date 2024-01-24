@@ -1,0 +1,22 @@
+@import '../../../scss/mixins.scss';
+
+.admin__history {
+    @include block(92vh);
+    @include center;
+    flex-direction: column;
+
+
+    .admin__history-container {
+        @include block(90%);
+        width: 70%;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .admin__history-pagination {
+        @include block(10%);
+        @include center;
+        width: 70%;
+    }
+}

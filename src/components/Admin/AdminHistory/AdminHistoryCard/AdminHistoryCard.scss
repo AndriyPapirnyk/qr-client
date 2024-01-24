@@ -1,0 +1,33 @@
+@import '../../../../scss/mixins.scss';
+
+.admin__history-card {
+    @include center;
+    justify-content: space-around;
+    width: 77%;
+    height: 54px;
+    border-radius: 15px;
+    background-color: #ffffff99;
+
+
+    h4 {
+        @include text(18px, black, 700)
+    }
+
+    p {
+        @include text(18px, black, 700)
+    }
+
+    span {
+        @include text(18px, rgb(41, 225, 28), 700)
+    }
+
+    .index {
+        @include text(23px, white, 700)
+    }
+
+    .data__text {
+        width: 21%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
