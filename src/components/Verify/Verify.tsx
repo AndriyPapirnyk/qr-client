@@ -29,7 +29,7 @@ function Verify() {
     setPostKey(true);
     if (postKey) {
       const postHandle = async () => {
-        await axios.post('http://localhost:8000/api/user/verifyUser', {})
+        await axios.post('https://qr-server-129a.onrender.com/api/user/verifyUser', {})
           .then((response: any) => {
             if (response.status !== 404) {
               console.log(response.data);

@@ -10,7 +10,7 @@ const LoginForm = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/api/user/createUser', {name: name})
+        axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name})
         .then((response: any) => {
             if(response.status === 200) {
                 console.log(response)
