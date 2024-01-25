@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import image from './Image/QECode.png';
 
-interface UserData {
-    scanned: boolean;
-    user: {
-      count: number;
-      lastScan: string;
-      name: string;
-      userId: string;
-      __v: number;
-      _id: string;
-    };
-  }
+// interface UserData {
+//     scanned: boolean;
+//     user: {
+//       count: number;
+//       lastScan: string;
+//       name: string;
+//       userId: string;
+//       __v: number;
+//       _id: string;
+//     };
+//   }
 
 
 const Container = () => {
