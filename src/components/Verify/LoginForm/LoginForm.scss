@@ -1,0 +1,13 @@
+@import '../../../scss/mixins.scss';
+
+.verify__form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    input{
+        @include input(300px)
+    }
+    button{
+        @include button(300px)
+    }
+}
