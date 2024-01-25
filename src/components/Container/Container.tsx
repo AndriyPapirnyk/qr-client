@@ -21,29 +21,24 @@ import image from './Image/QECode.png';
 const Container = () => {
 
 //   const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", __v: 0, _id: "" } })
-  const [resData, setResData] = useState<any>([])
   const [score, setScore] = useState<number>(0)
 
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await fetch('https://qr-server-129a.onrender.com/api/user/getUsers');
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await fetch('https://qr-server-129a.onrender.com/api/user/getCount');
             const result = await response.json();
             console.log(result);
-            setResData(result);
-            setScore((prevScore) => {
-                const newScore = resData.reduce((acc: any, item: any) => acc + item.count, 0);
-                console.log(newScore);
-                return prevScore + newScore;
-              });
-          } catch (error) {
+            setScore(result.totalCount)
+        } catch (error) {
             console.error('Error fetching data:', error);
-          }
-        };
-    
-        fetchData();
-      }, []);
+        }
+    };
+
+    fetchData();
+}, []);
+
 
 
     return (
