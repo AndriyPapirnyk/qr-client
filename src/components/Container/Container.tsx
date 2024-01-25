@@ -1,32 +1,73 @@
-
+import { useEffect, useState } from 'react';
 import './Container.scss';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header/Header';
-import image from './Image/QECode.png'
-const Container = () => {
-    return (
+import image from './Image/QECode.png';
 
-        <div className='container'>
+interface UserData {
+    scanned: boolean;
+    user: {
+      count: number;
+      lastScan: string;
+      name: string;
+      userId: string;
+      __v: number;
+      _id: string;
+    };
+  }
+
+
+const Container = () => {
+
+//   const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", __v: 0, _id: "" } })
+  const [resData, setResData] = useState<any>([])
+  const [score, setScore] = useState<number>(0)
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('https://qr-server-129a.onrender.com/api/user/getUsers');
+            const result = await response.json();
+            console.log(result);
+            setResData(result);
+            setScore((prevScore) => {
+                const newScore = resData.reduce((acc: any, item: any) => acc + item.count, 0);
+                console.log(newScore);
+                return prevScore + newScore;
+              });
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+
+    return (
+        <div className="home">
+            <div className='home__container'>
             <Header />
             <div className="container__block-container">
-                <div className='container__first-block'>
+                {/* <div className='container__first-block'> */}
                     <div className="container__first-block_image" >
                         <img src={image} alt="QR Code" />
                     </div>
 
-                </div>
+                {/* </div> */}
                 <div className='container__second-block'>
                     <h3>Відскановано</h3>
                     <div className='container__second-block_card-container'>
                         <div className="container__second-block_card">
-                            <p>4</p>
+                            <p>0</p>
                         </div>
                         <div className="container__second-block_card">
-                            <p>2</p>
+                            <p>0</p>
                         </div>
                         <div className="container__second-block_card">
-                            <p>8</p>
+                            <p>{score}</p>
                         </div>
                     </div>
 
@@ -38,9 +79,8 @@ const Container = () => {
 
                 </div>
             </div>
-
-
         </div >
+        </div>
     )
 }
 

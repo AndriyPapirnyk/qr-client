@@ -2,12 +2,17 @@
 
 .header {
     @include block(8vh);
-    display: flex;
-    justify-content: end;
-    align-items: end;
+    // display: flex;
+    // justify-content: end;
+    // align-items: end;
     width: 100%;
-    padding-right: 17px;
-
+    position: absolute;
+    top: 0;
+    &__container{
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+    }
 }
 
 .header__user {

@@ -19,7 +19,7 @@
         width: 1250px;
         height: 100%;
         display: flex;
-        border: 1px solid #000;
+        // border: 1px solid #000;
     }
 }
 @mixin text($fontSize, $color, $fontWeight) {
@@ -53,7 +53,7 @@
     background-color: #fff;
     font-size: 20px;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0 15px;
     font-weight: 700;
     transition: .5s;
     &::placeholder{
