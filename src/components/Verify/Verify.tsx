@@ -5,6 +5,7 @@ import './Verify.scss';
 
 import LoginForm from './LoginForm/LoginForm';
 import { BounceLoader } from 'react-spinners';
+import Cookies from 'js-cookie';
 
 interface UserData {
   scanned: boolean;
@@ -34,7 +35,8 @@ function Verify() {
             if (response.status !== 404) {
               console.log(response.data);
               setResData(response.data);
-              setLoading(false)
+              setLoading(false);
+              Cookies.set('user', JSON.stringify(response.data.user));
             } else {
               alert('Something went wrong!');
             }

@@ -1,12 +1,25 @@
-
+import { useEffect, useState } from 'react';
 import './Header.scss';
+import Cookies from 'js-cookie';
+import icon from './img/account.png'
+
 const Header = () => {
+
+    const [user, setUser] = useState<any>({})
+
+    useEffect(() => {
+        const storedUser = Cookies.get('user');
+    
+        if (storedUser) {
+          setUser(JSON.parse(storedUser));
+        }
+      }, []);
     return (
         <div className='header'>
             <div className="header__container">
-            <p>User Name</p>
+            <p>{user.name}</p>
             <div className='header__user'>
-                <p>Кл</p>
+                <img src={icon} alt="" />
             </div>
             </div>
         </div>
