@@ -6,25 +6,10 @@ import { BounceLoader } from 'react-spinners';
 import Header from '../Header/Header';
 import image from './Image/QECode.png';
 
-// interface UserData {
-//     scanned: boolean;
-//     user: {
-//       count: number;
-//       lastScan: string;
-//       name: string;
-//       userId: string;
-//       __v: number;
-//       _id: string;
-//     };
-//   }
-
-
 const Container = () => {
 
-//   const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", __v: 0, _id: "" } })
   const [score, setScore] = useState<number>(0)
   const [loaded, setLoaded] = useState<boolean>(false)
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,23 +23,16 @@ const Container = () => {
             console.error('Error fetching data:', error);
         }
     };
-
     fetchData();
 }, []);
 
-
-
     return (
         <div className="home">
-            <div className='home__container'>
             <Header />
-            <div className="container__block-container">
-                {/* <div className='container__first-block'> */}
+            <div className='home__container'>
                     <div className="container__first-block_image" >
                         <img src={image} alt="QR Code" />
                     </div>
-
-                {/* </div> */}
                 <div className='container__second-block'>
                     <h3>Відскановано</h3>
                     <div className='container__second-block_card-container'>
@@ -81,7 +59,6 @@ const Container = () => {
 
                 </div>
             </div>
-        </div >
         </div>
     )
 }
