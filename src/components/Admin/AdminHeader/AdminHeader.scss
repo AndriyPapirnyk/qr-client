@@ -1,0 +1,42 @@
+@import '../../../scss/mixins.scss';
+
+
+
+
+
+.admin__header {
+    @include block(8vh);
+    @include center;
+
+    width: 100%;
+    justify-content: space-between;
+    padding: 25px;
+
+    h3 {
+        @include text(21px, white, 700)
+    }
+
+    .admin__header-link-container {
+        @include center;
+        width: 13%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        p {
+            @include text(21px, white, 700);
+            transition: 1s
+        }
+
+        ;
+
+        p:hover {
+            @include text(21px, lightgreen, 700)
+        }
+
+
+
+
+
+    }
+}

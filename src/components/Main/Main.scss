@@ -1,6 +1,6 @@
 @import '../../scss/mixins.scss';
 
-.Main {
+.main {
     @include block(100vh);
     display: flex;
     justify-content: center;

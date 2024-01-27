@@ -1,0 +1,32 @@
+@import '../../scss/mixins.scss';
+
+.header {
+    @include block(8vh);
+    // display: flex;
+    // justify-content: end;
+    // align-items: end;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    &__container{
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        p{
+            @include text(22px, white, 700);
+        }
+    }
+}
+
+.header__user {
+    @include center;
+    width: 45px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #ffffff99;
+    cursor: pointer;
+    img{
+        width: 90%;
+        height: 90%;
+    }
+}

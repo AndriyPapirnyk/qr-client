@@ -1,0 +1,22 @@
+@import '../../scss/mixins.scss';
+
+.verify{
+    @include block(100vh);
+    &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        h1{
+            @include text(clamp(20px, 10vw, 44px), white, 700)
+        } 
+        h2{
+            @include text(clamp(16px, 6vw, 34px), white, 700)
+        }
+        button{
+            @include button(300px);
+        }
+    }
+}

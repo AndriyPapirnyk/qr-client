@@ -1,55 +1,67 @@
 @import '../../scss/mixins.scss';
 
-.container {
+.home {
 
-    @include block(20vh);
-    width: 65%;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include block(100vh);
+    position: relative;
+    // width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+    &__container{
+        align-items: center;
+        justify-content: center;
+    }
 
 
-    .container__first-block {
-        width: 40%;
-        height: 100%;
+    .container__block-container {
+
+        // @include block(50vh);
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    // .container__first-block {
+    //     width: 40%;
+    //     height: 100%;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+
+        
+
+
+    // }
+
+    .container__first-block_image {
+        width: 400px;
+        height: 400px;
+        // height: 82%;
+        border-radius: 20px;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        .container__first-block_image {
-            width: 82%;
-            height: 82%;
-            border-radius: 20px;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-                width: 92%;
-                height: 92%;
-            }
+        img {
+            width: 92%;
+            height: 92%;
         }
-
-
     }
 
     .container__second-block {
+
         width: 60%;
-        height: 84%;
+        height: auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-
-
-
-
         align-items: center;
-
+        gap: 30px;
 
         h3 {
-            @include text(34px, white, 700)
+            @include text(45px, white, 700)
         }
 
         .container__second-block_card-container {
@@ -60,9 +72,9 @@
         }
 
         .container__second-block_card {
-            height: 78%;
+            height: 200px;
             width: 30%;
-            border-radius: 10px;
+            border-radius: 20px;
             background-color: #5c3113;
             display: flex;
             align-items: center;
@@ -70,9 +82,14 @@
 
 
             p {
-                @include text(90px, white, 800)
+                @include text(100px, white, 800)
             }
         }
 
+        .container__second-block-btn {
+            @include button(300px);
+            // height: 45px;
+            // background-color: #ffffff99;
+        }
     }
 }
