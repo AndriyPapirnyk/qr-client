@@ -4,6 +4,7 @@ import Rating from '../Rating/Rating';
 import { BrowserRouter , Routes , Route } from "react-router-dom";
 import './Main.scss'
 import axios from 'axios';
+import UserPage from "../UserPage/userPage";
 
 const Main = () => {
 
@@ -39,6 +40,7 @@ const Main = () => {
                     {identificateKey ? <Route index element={<Container />} /> : null}
                     <Route index element={<Container />} />
                     <Route path="/rating" element={<Rating />} />
+                    <Route path="/user" element={<UserPage />} />
                 </Routes>
             </BrowserRouter>
         </div>
