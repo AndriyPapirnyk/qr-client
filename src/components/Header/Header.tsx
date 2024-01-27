@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Header.scss';
 import Cookies from 'js-cookie';
 import icon from './img/account.png'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -13,17 +14,29 @@ const Header = () => {
         if (storedUser) {
           setUser(JSON.parse(storedUser));
         }
-      }, []);
+    }, []);
+
+    useEffect(()=>{
+        console.log(user)
+    }, [user])
+
+
+
     return (
         <div className='header'>
-            <div className="header__container">
-            <p>{user.name}</p>
-            <div className='header__user'>
-                <img src={icon} alt="" />
-            </div>
-            </div>
+            {user !== false && (
+                <Link to="/user">
+                    <div className="header__container">
+                        <p>{user.name}</p>
+                        <div className='header__user'>
+                            <img src={`https://robohash.org/${user.userId}/?set=set4`} alt="" />
+                        </div>
+                    </div>
+                </Link>
+            )}
         </div>
     )
+    
 }
 
 export default Header
