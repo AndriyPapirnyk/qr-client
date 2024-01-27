@@ -1,13 +1,17 @@
 @import '../../scss/mixins.scss';
 
 .home {
+    overflow-x: hidden;
 
     @include block(100vh);
     @media screen and (max-width: 950px) {
         height: auto;
     }
     &__container{
+        padding: 50px 0;
         align-items: center;
+        z-index: 10;
+        margin-top: 100px;
         justify-content: center;
         @media screen and (max-width: 950px) {
             flex-direction: column;
@@ -73,5 +77,11 @@
         .container__second-block-btn {
             @include button(300px);
         }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .home .container__second-block .container__second-block_card{
+        width: 200px;
     }
 }

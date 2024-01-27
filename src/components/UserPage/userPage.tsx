@@ -77,7 +77,7 @@ const UserPage = () => {
                                     </div>
                                 </div>
                                 <div className='directions'>
-                                    <Link className='text' to="/ ">{'> Головна'}</Link>
+                                    <Link className='text' to="/home">{'> Головна'}</Link>
                                     <Link className='text' to="/rating">{'> Рейтинг'}</Link>
                                 </div>
                             </div>
