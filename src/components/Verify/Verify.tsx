@@ -6,6 +6,7 @@ import './Verify.scss';
 import LoginForm from './LoginForm/LoginForm';
 import { BounceLoader } from 'react-spinners';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 interface UserData {
   scanned: boolean;
@@ -69,6 +70,7 @@ function Verify() {
               <>
               <h1>Вітаємо на QR Service</h1>
               <LoginForm/>
+              <Link to="/home" style={{color: '#fff', textDecoration: 'underline'}}>Перейти до QR-коду</Link>
               </>
             )
           )}

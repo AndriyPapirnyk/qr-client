@@ -1,7 +1,8 @@
-.userBox{
+.userBox {
     width: 100%;
     height: 100vh;
-    .head{
+
+    .head {
         width: 100%;
         height: 12vh;
         padding: 0 30px;
@@ -9,55 +10,88 @@
         flex-direction: row;
         align-items: center;
         position: absolute;
-        h1{
+
+        h1 {
             color: #fff;
         }
     }
-    .main{
+
+    .main {
         width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: row;
-        .left{
-            padding-top: 50px;
+
+        .left {
             width: 30%;
             height: 100%;
             background-color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
-            .userName{
-                color: #fff;
-                font-size: 20px;
-                margin-top: 20px;
-                font-weight: 700;
-                letter-spacing: 3px;
-            }
-            .idcode{
-                color: #fff;
-                font-weight: 200;
-                letter-spacing: 2px;
-            }
-            .image{
-                margin-top: 12vh;
-                width: 250px;
-                height: 250px;
+            justify-content: space-around;
+
+            .tog {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
                 align-items: center;
-                border-radius: 50%;
-                background-color: #fff;
-                overflow: hidden;
-                .imageDiv{
-                    width: 100%;
-                    height: 100%;
-                    background-size: cover;
-                    background-position: center;
+                justify-content: center;
+                .userName {
+                    color: #fff;
+                    font-size: 20px;
+                    margin-top: 20px;
+                    font-weight: 700;
+                    letter-spacing: 3px;
+                }
+
+                .idcode {
+                    color: #fff;
+                    // font-weight: 200;
+                    letter-spacing: 1px;
+                    font-size: calc(1.1vw);
+                }
+
+                .image {
+                    margin-top: 12vh;
+                    width: 250px;
+                    height: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    overflow: hidden;
+
+                    .imageDiv {
+                        width: 100%;
+                        height: 100%;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+            }
+
+            .directions {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: 0.4s;
+                    &:hover{
+                        letter-spacing: 2px;
+                        text-decoration: underline;
+                    }
                 }
             }
         }
-        .right{
+
+        .right {
             height: 100%;
             width: 70%;
             display: flex;
@@ -65,24 +99,32 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            h1{
+
+            .directions{
+                display: none;
+            }
+
+            h1 {
                 color: #fff;
                 font-size: 40px;
                 font-weight: 500;
             }
-            .mainRight{
+
+            .mainRight {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-                .points{
+
+                .points {
                     margin: 40px 0;
                     text-align: center;
                     font-size: 30px;
                     font-weight: 600;
                     color: #fff;
-                    .blockPoints{
+
+                    .blockPoints {
                         width: 100%;
                         height: 50px;
                         padding: 0 20px;
@@ -96,14 +138,16 @@
                         border-radius: 5px;
                     }
                 }
-                .btns{
+
+                .btns {
                     display: flex;
                     flex-direction: row;
                     width: 100%;
                     flex-wrap: wrap;
                     justify-content: space-evenly;
                     align-items: center;
-                    .blockBtn{
+
+                    .blockBtn {
                         width: 190px;
                         height: 190px;
                         display: flex;
@@ -117,8 +161,9 @@
                         outline: none;
                         border-radius: 15px;
                     }
-                    #historyBlock{
-                        .blockImage{
+
+                    #historyBlock {
+                        .blockImage {
                             background-image: url('https://cdn.icon-icons.com/icons2/2518/PNG/512/history_icon_151299.png');
                             background-size: cover;
                             background-position: center;
@@ -126,8 +171,9 @@
                             height: 60%;
                         }
                     }
-                    #shopBlock{
-                        .blockImage{
+
+                    #shopBlock {
+                        .blockImage {
                             background-image: url('https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/shop-512.png');
                             background-size: cover;
                             background-position: center;
@@ -138,5 +184,99 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 1015px) {
+    .userBox .main .right{
+        width: 60%;
+    }
+    .userBox .main .left{
+        width: 40%; 
+    }
+    .userBox .main .left .tog .idcode{
+        font-size: calc(1.4vw);
+    }
+}
+
+@media screen and (max-width: 785px) {
+    .userBox .main .left .tog .image{
+        width: 200px;
+        height: 200px;
+    }
+    .userBox .main .right .mainRight .btns .blockBtn{
+        width: 140px;
+        height: 140px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .userBox .main .left{
+        display: none;
+    }
+    .userBox .main .right{
+        width: 100%;
+        .directions {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+
+            .text {
+                font-size: 20px;
+                font-weight: 600;
+                color: #fff;
+                cursor: pointer;
+                transition: 0.4s;
+                &:hover{
+                    letter-spacing: 2px;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .btns{
+            margin: 0 0 30px 0;
+        }
+    }
+    .userBox .main .right .congrats{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .image{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #fff;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // border: 2px solid #000000;
+            .imageDiv{
+                width: 80%;
+                height: 80%;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .userBox .main .right h1{
+        font-size: 30px;
+    }
+    .userBox .main .right .congrats .image{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .userBox .main .right .mainRight .btns .blockBtn{
+        width: 100px;
+        height: 100px;
     }
 }
