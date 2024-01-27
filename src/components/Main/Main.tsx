@@ -5,7 +5,7 @@ import Admin from "../Admin/Admin";
 import Verify from "../Verify/Verify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './Main.scss'
-import axios from 'axios';
+// import axios from 'axios';
 import UserPage from "../UserPage/userPage";
 
 
