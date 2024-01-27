@@ -13,7 +13,6 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.6",
-    "@types/cookie": "^0.6.0",
     "axios": "^1.6.5",
     "cookie": "^0.6.0",
     "js-cookie": "^3.0.5",
@@ -26,6 +25,7 @@
     "semantic-ui-react": "^2.1.5"
   },
   "devDependencies": {
+    "@types/cookie": "^0.6.0",
     "@types/js-cookie": "^3.0.6",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
