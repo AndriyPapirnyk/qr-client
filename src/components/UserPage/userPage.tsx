@@ -60,7 +60,7 @@ const UserPage = () => {
                                 <div className="image">
                                     <div className="imageDiv" style={{ backgroundImage: `url(https://robohash.org/${userObject.userId}/?set=set4)` }}></div>
                                 </div>
-                                <h1><span style={{color: '#fff'}}>Вітаємо</span>, <span style={{color: '#fff'}}>{userObject.name}</span></h1>
+                                <h1>Вітаємо, {userObject.name}</h1>
                             </div>
                             <div className="mainRight">
                                 <div className="points">
