@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Header.scss';
 import Cookies from 'js-cookie';
-import icon from './img/account.png'
 import { Link } from 'react-router-dom';
 
 const Header = () => {
