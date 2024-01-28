@@ -15,6 +15,7 @@ interface UserData {
     lastScan: string;
     name: string;
     userId: string;
+    history: Array<string>;
     __v: number;
     _id: string;
   };
@@ -25,7 +26,7 @@ function Verify() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(true)
   const [postKey, setPostKey] = useState<boolean>(false);
-  const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", __v: 0, _id: "" } })
+  const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", history: [], __v: 0, _id: "" } })
 
   useEffect(() => {
     setPostKey(true);

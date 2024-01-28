@@ -54,7 +54,7 @@ const Rating: React.FC = () => {
 
     return (
         <div className='rating'>
-            <h1 className='text_head'>Рейтинг гравців</h1>
+            <h1 className='text_head'>Рейтинг користувачів</h1>
             <div className="users">
               {loaded ? (
                 <>

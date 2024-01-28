@@ -4,6 +4,7 @@
     overflow-x: hidden;
 
     @include block(100vh);
+    position: relative;
     @media screen and (max-width: 950px) {
         height: auto;
     }
@@ -11,7 +12,7 @@
         padding: 50px 0;
         align-items: center;
         z-index: 10;
-        margin-top: 100px;
+        // margin-top: 100px;
         justify-content: center;
         @media screen and (max-width: 950px) {
             flex-direction: column;
