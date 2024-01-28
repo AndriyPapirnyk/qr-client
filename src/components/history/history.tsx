@@ -1,4 +1,4 @@
-import './History.scss';
+import './history.scss';
 import { useState, useEffect } from 'react';
 import { parse } from 'cookie';
 // import { Link } from 'react-router-dom';
