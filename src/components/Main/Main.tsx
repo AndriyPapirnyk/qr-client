@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './Main.scss'
 import UserPage from "../UserPage/userPage";
 import NotFound from '../NotFound/NotFound';
-
+import HistoryPage from '../history/history';
 
 const Main = () => {
   return (
@@ -19,6 +19,7 @@ const Main = () => {
           <Route path="/admin" element={<Admin />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/history" element={<HistoryPage/>} />
         </Routes>
       </BrowserRouter>
     </div>

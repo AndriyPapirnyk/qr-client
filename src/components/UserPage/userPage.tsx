@@ -5,10 +5,11 @@ import './userPage.scss';
 
 const UserPage = () => {
     const [userObject, setUserObject] = useState({
-        name: 'Mike',
-        userId: 70259564,
-        count: 10,
-        inventory: []
+        name: '',
+        userId: 0,
+        count: 0,
+        history: [],
+        lastScan: '',
     });
 
     const getCookieValue = (cookieName: string) => {
@@ -67,14 +68,18 @@ const UserPage = () => {
                                     Ваші бали:<br /><div className="blockPoints">{userObject.count}</div>
                                 </div>
                                 <div className="btns">
-                                    <div className="blockBtn" id="historyBlock">
-                                        Історія сканувань
-                                        <div className="blockImage"></div>
-                                    </div>
-                                    <div className="blockBtn" id="shopBlock">
-                                        Магазин 
-                                        <div className="blockImage"></div>                              
-                                    </div>
+                                    <Link to="/history">
+                                        <div className="blockBtn" id="historyBlock">
+                                            Історія сканувань
+                                            <div className="blockImage"></div>
+                                        </div>
+                                    </Link>
+                                    <Link to="/shop">
+                                        <div className="blockBtn" id="shopBlock">
+                                            Магазин 
+                                            <div className="blockImage"></div>                              
+                                        </div>
+                                    </Link>
                                 </div>
                                 <div className='directions'>
                                     <Link className='text' to="/home">{'> Головна'}</Link>
