@@ -69,7 +69,7 @@ function Verify() {
               </>    
             ) : (
               <>
-              <h1>Вітаємо на QR Service</h1>
+              <h1>Вітаємо на QR Harbor</h1>
               <LoginForm/>
               <Link to="/home" style={{color: '#fff', textDecoration: 'underline'}}>Перейти до QR-коду</Link>
               </>

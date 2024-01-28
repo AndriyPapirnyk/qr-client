@@ -3,7 +3,7 @@
 .header {
     @include block(8vh);
     width: 100%;
-    z-index: 0;
+    z-index: 15;
     position: absolute;
     top: 0;
     &__container{
