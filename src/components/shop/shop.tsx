@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './shop.scss';
 import Good from './Good';
 
@@ -10,7 +10,7 @@ interface Good {
 }
 
 const ShopPage = () => {
-  const [arr, setArr] = useState<Array<Good>>([
+  const arr: Array<Good> = [
     {
       name: 'Блокнот1',
       points: 50,
@@ -29,7 +29,7 @@ const ShopPage = () => {
       id: 'b0003',
       img: 'https://tops.ua/sites/default/files/styles/zoom-big/public/node/product/classic.jpg?itok=SQQSk8W5',
     },
-  ]);
+  ];
 
   const [cart, setCart] = useState<string[]>([]);
 
