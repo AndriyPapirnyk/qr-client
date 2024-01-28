@@ -1,7 +1,7 @@
 import './History.scss';
 import { useState, useEffect } from 'react';
 import { parse } from 'cookie';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import HistoryBlock from './historyBlock';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
