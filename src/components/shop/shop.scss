@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(228, 148, 87);
+}
+
+.shopPage {
+    width: 100%;
+    min-height: 100vh;
+
+    .shoph1 {
+        color: #fff;
+        text-align: center;
+    }
+
+    .blockShop {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .good {
+            width: 250px;
+            height: 350px;
+            background-color: #fff;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 20px 40px;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .goodInfo {
+
+                .goodName,
+                .goodPoints {
+                    color: #111;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.good.selected {
+    border: 5px solid #00ff00;
+}
+
+.cart {
+    margin-top: 20px;
+
+    h2 {
+        color: #fff;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 5px 0;
+            padding: 5px;
+        }
+    }
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .li_cart{
+        padding: 0 10px;
+        margin: 10px 10px;
+    }
+    .confirmButton{
+        width: 200px;
+        height: 60px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
