@@ -3,11 +3,12 @@ import './Admin.scss'
 import AdminContainer from './AdminContainer/AdminContainer'
 import AdminHeader from './AdminHeader/AdminHeader';
 import AdminHistory from './AdminHistory/AdminHistory';
+import AdminPopup from './AdminPopup/AdminPopup';
 const Admin = () => {
 
-    const [isComponent, setIsComponent] = useState<'Заявки' | 'Історія'>('Заявки');
+    const [isComponent, setIsComponent] = useState<'Заявки' | 'Історія' | 'Створити'>('Заявки');
 
-    const switchChange = (component: 'Заявки' | 'Історія') => {
+    const switchChange = (component: 'Заявки' | 'Історія' | 'Створити') => {
         setIsComponent(component);
     }
 
@@ -27,6 +28,11 @@ const Admin = () => {
             {
                 isComponent === "Історія" && (
                     <AdminHistory />
+                )
+            }
+            {
+                isComponent === "Створити" && (
+                    <AdminPopup />
                 )
             }
 

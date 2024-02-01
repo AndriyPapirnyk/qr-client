@@ -16,12 +16,12 @@
         @include text(21px, white, 700)
     }
 
-    .admin__header-link-container {
+    .admin__header-container {
         @include center;
-        width: 13%;
+        width: 19%;
         height: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
 
         p {
             @include text(21px, white, 700);
@@ -34,9 +34,16 @@
             @include text(21px, lightgreen, 700)
         }
 
+        .admin__header-btn {
+            @include button(90px);
+            @include text(14px, black, 700);
+            height: 35px;
+            border-radius: 10px;
 
-
-
-
+            &:hover {
+                background-color: #3a3333;
+                color: white;
+            }
+        }
     }
 }
