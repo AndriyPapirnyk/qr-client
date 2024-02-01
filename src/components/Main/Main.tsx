@@ -9,7 +9,9 @@ import NotFound from '../NotFound/NotFound';
 import HistoryPage from '../history/history';
 import ShopPage from '../shop/shop';
 
+
 const Main = () => {
+
   return (
     <div className='main'>
       <BrowserRouter>

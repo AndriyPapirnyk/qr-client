@@ -23,7 +23,7 @@ const Header = () => {
 
     return (
         <div className='header'>
-            {user !== false && (
+            {user&& (
                 <Link to="/user">
                     <div className="header__container">
                         <p>{user.name}</p>
