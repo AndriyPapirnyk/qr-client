@@ -19,7 +19,8 @@ interface Card {
     date: string
     name: string,
     products: Array<cartGood>,
-    totalPrice: number
+    totalPrice: number,
+    state: String
 }
 
 const AdminContainer: FC = () => {

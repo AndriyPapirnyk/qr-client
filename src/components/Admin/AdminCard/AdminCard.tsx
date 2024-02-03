@@ -61,9 +61,9 @@ const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date }) 
                     </div>
                 ) : <div className='data__text'><p>Товари: {namelist}</p></div>}
                 <div className="admin__card__btnGroup">
-                <button className="admin__card-btn">Підтвердити</button>
-                <button className="admin__card-btn red">Відхилити</button>
-                <button className=" admin__card-btn admin__card-btn_grey" onClick={expandHandle}>Розширити</button>
+                <button className="admin__card-btn" id={'p'+_id}>Підтвердити</button>
+                <button className="admin__card-btn red" id={'v'+_id}>Відхилити</button>
+                <button className=" admin__card-btn admin__card-btn_grey" onClick={expandHandle}>{expandKey ? 'Згорнути' : 'Розширити'}</button>
                 </div>
             </div>
 
