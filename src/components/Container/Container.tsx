@@ -8,16 +8,21 @@ import image from './Image/QECode.png';
 
 const Container = () => {
 
-  const [score, setScore] = useState<number>(0)
-  const [loaded, setLoaded] = useState<boolean>(false)
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [digit1, setDigit1] = useState<number>(0)
+  const [digit2, setDigit2] = useState<number>(0)
+  const [digit3, setDigit3] = useState<number>(0)
 
   useEffect(() => {
     const fetchData = async () => {
         try {
             const response = await fetch('https://qr-server-129a.onrender.com/api/user/getCount');
             const result = await response.json();
-            console.log(result);
-            setScore(result.totalCount);
+            const scoreStr = result.totalCount.toString();
+            const paddedNumber: any = scoreStr.padStart(3, '0');
+            setDigit1(parseInt(paddedNumber[0], 10))
+            setDigit2(parseInt(paddedNumber[1], 10))
+            setDigit3(parseInt(paddedNumber[2], 10))
             setLoaded(true);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -39,13 +44,13 @@ const Container = () => {
                         {loaded ? (
                             <>
                              <div className="container__second-block_card">
-                            <p>0</p>
+                            <p>{digit1}</p>
                         </div>
                         <div className="container__second-block_card">
-                            <p>0</p>
+                            <p>{digit2}</p>
                         </div>
                         <div className="container__second-block_card">
-                            <p>{score}</p>
+                            <p>{digit3}</p>
                         </div>
                             </>
                         ) : <BounceLoader color="#36d7b7" size={200}/>}

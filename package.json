@@ -12,9 +12,12 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@fingerprintjs/fingerprintjs": "^4.2.2",
     "@mui/material": "^5.15.6",
     "axios": "^1.6.5",
     "cookie": "^0.6.0",
+    "fingerprintjs": "^0.5.3",
+    "fingerprintjs2": "^2.1.4",
     "js-cookie": "^3.0.5",
     "mui": "^0.0.1",
     "react": "^18.2.0",
@@ -26,6 +29,7 @@
   },
   "devDependencies": {
     "@types/cookie": "^0.6.0",
+    "@types/fingerprintjs2": "^2.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",

@@ -2,14 +2,15 @@
 
 .header {
     @include block(8vh);
-    width: 100%;
     z-index: 15;
     position: absolute;
     top: 0;
+    justify-content: flex-end;
     &__container{
-        justify-content: flex-end;
+        width: auto;
         align-items: center;
         gap: 10px;
+        margin-right: 35px;
         p{
             @include text(22px, white, 700);
         }
