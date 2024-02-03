@@ -52,7 +52,7 @@ const UserPage = () => {
                                 </div>
                             </div>
                             <ul className='directions'>
-                                <Link to="/ "><li>{'> Головна'}</li></Link>
+                                <Link to="/home "><li>{'> Головна'}</li></Link>
                                 <Link to="/rating"><li>{'> Рейтинг'}</li></Link>
                             </ul>
                         </div>
