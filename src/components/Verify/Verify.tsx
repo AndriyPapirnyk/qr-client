@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Fingerprint2 from 'fingerprintjs2';
 import './Verify.scss';
 
 import LoginForm from './LoginForm/LoginForm';
@@ -28,11 +29,23 @@ function Verify() {
   const [postKey, setPostKey] = useState<boolean>(false);
   const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", history: [], __v: 0, _id: "" } })
 
+  const getDeviceId = async () => {
+    return new Promise<string>((resolve, _reject) => {
+      Fingerprint2.get({}, function (components) {
+        const values = components.map((component) => component.value);
+        const deviceId = Fingerprint2.x64hash128(values.join(''), 31);
+        resolve(deviceId);
+      });
+    });
+  };
+
   useEffect(() => {
     setPostKey(true);
     if (postKey) {
       const postHandle = async () => {
-        await axios.post('https://qr-server-129a.onrender.com/api/user/verifyUser', {})
+        const deviceId = await getDeviceId()
+        console.log(deviceId)
+        await axios.post('https://qr-server-129a.onrender.com/api/user/verifyUser', {deviceId})
           .then((response: any) => {
             if (response.status !== 404) {
               console.log(response.data);
@@ -51,6 +64,7 @@ function Verify() {
     }
   }, [postKey])
 
+  
   const getHomePage = () => {
     navigate('/home')
   }

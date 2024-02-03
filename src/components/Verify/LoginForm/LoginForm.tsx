@@ -2,15 +2,29 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.scss';
 import axios from 'axios';
+import Fingerprint2 from 'fingerprintjs2';
 
 const LoginForm = () => {
 
     const navigate = useNavigate();
-    const [name, setName] = useState<string>('')
+    const [name, setName] = useState<string>('');
 
-    const handleLogin = (e: any) => {
-        e.preventDefault()
-        axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name})
+    const getDeviceId = async () => {
+        return new Promise<string>((resolve, _reject) => {
+          Fingerprint2.get({}, function (components) {
+            const values = components.map((component) => component.value);
+            const deviceId = Fingerprint2.x64hash128(values.join(''), 31);
+            resolve(deviceId);
+          });
+        });
+      };
+
+    const handleLogin = async (e: any) => {
+        try{
+            e.preventDefault();
+        const deviceId = await getDeviceId();
+        console.log(deviceId)
+        axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name, deviceId: deviceId})
         .then((response: any) => {
             if(response.status === 200) {
                 console.log(response)
@@ -22,6 +36,9 @@ const LoginForm = () => {
         .catch((error) => {
             console.error('Error:', error);
         });
+        } catch(error) {
+            console.error(error)
+        }
     } 
 
   return (
