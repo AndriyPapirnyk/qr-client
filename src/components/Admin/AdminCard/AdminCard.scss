@@ -2,12 +2,47 @@
 
 .admin__card {
     width: 100%;
-    height: 160px;
+    height: min-content;
     box-shadow: 0 0 4px #ccc;
     background-color: rgb(246, 242, 242);
     border-radius: 10px;
+    padding: 20px 30px;
+    margin: 20px 0;
+    &__productGroup{
+        width: 50%;
+        height: 100%;
+        overflow-x: scroll;
+        display: flex;
+        align-items: center;
 
-    .admin__card-data__container {
+    }
+    &__good{
+        height: 200px;
+        width: 200px;
+        background-color: #fff;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0px 20px;
+
+        img {
+            width: 100%;
+            height: 50%;
+            border-radius: 10px;
+        }
+
+        .goodInfo {
+
+            .goodName,
+            .goodPoints {
+                color: #111;
+                text-align: center;
+            }
+        }
+    }
+    &-data__container {
         width: 100%;
         height: 65%;
         background-color: transparent;
@@ -15,7 +50,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-
+        margin-bottom: 40px;
 
         h3 {
             @include text(23px, black, 700)
@@ -30,30 +65,38 @@
         }
 
         .data__text {
-            width: 22%;
+            span{
+                margin-left: 20px;
+            } 
             display: flex;
             justify-content: space-between;
         }
     }
 
-    .admin__card-btn__container {
+    &-btn__container {
         width: 100%;
-        height: 35%;
+        height: min-content;
         background-color: transparent;
         display: flex;
-        justify-content: end;
+        align-items: center;
+        justify-content: space-between;
         padding-right: 15px;
+        p {
+            @include text(23px, black, 700)
+        }
     }
 
-    .admin__card-btn {
+    &-btn {
         @include text(18px, white, 600);
+        cursor: pointer;
         width: 190px;
         height: 42px;
         background-color: rgb(27, 225, 27);
         border-radius: 8px;
         margin: 4px;
-
-
+        &_grey{
+            background-color: grey;
+        }
     }
 
     .red {

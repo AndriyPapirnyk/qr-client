@@ -1,96 +1,68 @@
 import './AdminContainer.scss';
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import AdminCard from '../AdminCard/AdminCard';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import axios from 'axios';
 
 
+interface cartGood {
+    name: string;
+    _id: string;
+    price: number;
+    img: string;
+  }
 
 interface Card {
-    id: number,
+    userId: number,
+    _id: string,
+    date: string
     name: string,
-    product: string,
-    points: number
+    products: Array<cartGood>,
+    totalPrice: number
 }
+
 const AdminContainer: FC = () => {
+
+
+    const [orders, setOrders] = useState(Array<Card>)
+
+    useEffect(()=>{
+        async function postHandle () {
+            axios.post('http://localhost:8000/api/user/getOrders')
+            .then((response: any) => {
+                if(response.status === 200) {
+                    setOrders(response.data);
+                    console.log(response.data)
+                } else {
+                    alert('Ой, щось пішло не так')
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        postHandle();
+    },[])
+
+   
 
     let itemsPerPage = 3;
     const [currentPage, setCurrentPage] = useState<number>(1);
 
-    const arr: Array<Card> = [
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        },
-        {
-            id: 127872384665,
-            name: 'Климент  Альмасенко',
-            product: 'Блокнот:',
-            points: 10
-        }
-
-    ]
+  
 
     const sorting = (array: Array<Card>): Array<Card> => {
-        return array.sort((a, b) => b.points - a.points)
+        return array.sort((a, b) => b.totalPrice - a.totalPrice)
     };
 
-    sorting(arr);
+    sorting(orders);
 
-    const totalPages = Math.ceil(arr.length / itemsPerPage);
+    
+    const totalPages = Math.ceil(orders.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const adminCards = arr.slice(startIndex, endIndex);
+    const adminCards = orders.slice(startIndex, endIndex);
 
 
     const pageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
@@ -102,7 +74,7 @@ const AdminContainer: FC = () => {
             <div className="card__conatiner">
                 {
                     adminCards.map((item) => (
-                        <AdminCard key={item.id} name={item.name} id={item.id} product={item.product} points={item.points} />
+                        <AdminCard key={item._id} name={item.name} date={item.date} _id={item._id} userId={item.userId} products={item.products} totalPrice={item.totalPrice} />
                     ))
                 }
 

@@ -2,13 +2,15 @@
 
 .admin__container {
     @include block(93vh);
+    min-height: 93vh;
     @include center;
     flex-wrap: wrap;
     border: none;
 
     .card__conatiner {
-        width: 66%;
-        height: 92%;
+        padding: 20px 0;
+        width: 80%;
+        height: min-content;
         display: flex;
         flex-wrap: wrap;
     }
