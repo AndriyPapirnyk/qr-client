@@ -5,6 +5,14 @@
     @include block(100vh);
     flex-direction: column;
     gap: 30px;
+    .head_container{
+        display: flex;
+    }
+    .home_btn{
+        position: absolute;
+        left: 0;
+        margin-left: 20px
+    }
     .text_head{
         @include text(40px, #fff, 700);
         text-align: center;
