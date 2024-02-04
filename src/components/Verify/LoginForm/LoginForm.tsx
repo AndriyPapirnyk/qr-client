@@ -21,21 +21,25 @@ const LoginForm = () => {
 
     const handleLogin = async (e: any) => {
         try{
-            e.preventDefault();
-        const deviceId = await getDeviceId();
-        console.log(deviceId)
-        axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name, deviceId: deviceId})
-        .then((response: any) => {
-            if(response.status === 200) {
-                console.log(response)
-                navigate('/home')
-            } else {
-                alert('Ой, щось пішло не так')
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+          e.preventDefault();
+          if(name.length != 0) {
+            const deviceId = await getDeviceId();
+            console.log(deviceId)
+            axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name, deviceId: deviceId})
+            .then((response: any) => {
+                if(response.status === 200) {
+                    console.log(response)
+                    navigate('/home')
+                } else {
+                    alert('Ой, щось пішло не так')
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+          } else {
+            alert(`Введіть ваше ім'я коректно`)
+          }
         } catch(error) {
             console.error(error)
         }

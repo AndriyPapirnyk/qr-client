@@ -12,6 +12,7 @@ const Header = () => {
     
         if (storedUser) {
           setUser(JSON.parse(storedUser));
+          console.log(storedUser)
         }
     }, []);
 
