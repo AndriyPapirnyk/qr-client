@@ -1,18 +1,20 @@
 @import '../../scss/mixins.scss';
 
-h1{
-    color: red;
-    font-size: 40px;
-}
-h2{
-    color: #fff;
-}
 .notFound{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-}
-.home_btn{
-    @include button(300px);
+    text-align: center;
+    h1{
+        color: red;
+        font-size: 40px;
+        line-height: normal;
+    }
+    h2{
+        color: #fff;
+    }
+    .home_btn{
+        @include button(300px);
+    }
 }
