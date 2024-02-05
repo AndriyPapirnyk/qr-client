@@ -90,11 +90,24 @@
 
         &-options{
             display: flex;
-            gap: 15px
+            gap: 15px;
+            border: 1px solid #000;
+            @media screen and (max-width: 420px) {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .link{
+                @media screen and (max-width: 420px) {
+                    width: calc(100% - 75px);
+                }
+            }
         }
 
         &-button {
             @include button(300px);
+            @media screen and (max-width: 420px) {
+                width: 100%;
+            }
         }
 
         &-qr{
