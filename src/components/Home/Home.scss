@@ -91,7 +91,6 @@
         &-options{
             display: flex;
             gap: 15px;
-            border: 1px solid #000;
             @media screen and (max-width: 420px) {
                 width: 100%;
                 justify-content: space-between;
