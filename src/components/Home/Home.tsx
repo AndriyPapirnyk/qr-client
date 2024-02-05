@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import './Container.scss';
+import './Home.scss';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import image from './Image/QECode.png';
 
-const Container = () => {
+const Home = () => {
 
   const [loaded, setLoaded] = useState<boolean>(false);
   const [digit1, setDigit1] = useState<number>(0)
@@ -33,39 +33,40 @@ const Container = () => {
 
     return (
         <div className="home">
-            <Header />
+            {/* <Header /> */}
             <div className='home__container'>
-                    <div className="container__first-block_image" >
+                    <div className="home__holder" >
                         <img src={image} alt="QR Code" />
                     </div>
-                <div className='container__second-block'>
+                <div className='home__main'>
                     <h3>Відскановано</h3>
-                    <div className='container__second-block_card-container'>
+                    <div className='home__main-holder'>
                         {loaded ? (
                             <>
-                             <div className="container__second-block_card">
+                             <div className="home__main-card">
                             <p>{digit1}</p>
                         </div>
-                        <div className="container__second-block_card">
+                        <div className="home__main-card">
                             <p>{digit2}</p>
                         </div>
-                        <div className="container__second-block_card">
+                        <div className="home__main-card">
                             <p>{digit3}</p>
                         </div>
                             </>
                         ) : <BounceLoader color="#36d7b7" size={200}/>}
                     </div>
-
+                    <div className="home__main-options">
                     <Link to="/rating">
-                        <button className='container__second-block-btn'>
+                        <button className='home__main-button'>
                             Рейтинг
                         </button>
                     </Link>
-
+                    <button className='home__main-qr'>QR</button>
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Container
+export default Home

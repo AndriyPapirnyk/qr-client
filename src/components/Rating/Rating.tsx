@@ -60,7 +60,7 @@ const Rating: React.FC = () => {
           {/* <Link to={'/home'}>
           <button className="home_btn">На головну</button>
           </Link> */}
-            <h1 className='text_head'>Рейтинг користувачів</h1>
+            <h1 className='text_head'>Рейтинг</h1>
             </div>
             <div className="users">
               {loaded ? (

@@ -13,6 +13,9 @@
         @include text(40px, #fff, 700);
         text-align: center;
         @media screen and (max-width: 560px) {
+            font-size: 35px;
+        }
+        @media screen and (max-width: 420px) {
             font-size: 30px;
         }
     }

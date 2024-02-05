@@ -1,0 +1,109 @@
+@import '../../scss/mixins.scss';
+
+.home {
+    overflow-x: hidden;
+
+    @include block(100vh);
+    position: relative;
+    @media screen and (max-width: 1050px) {
+        padding: 20px 0;
+        height: auto;
+    }
+    &__container{
+        width: 1140px;
+        align-items: center;
+        z-index: 10;
+        justify-content: center;
+        @media screen and (max-width: 1050px) {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    &__holder {
+        width: 400px;
+        height: 400px;
+        border-radius: 20px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 95%;
+            height: 95%;
+        }
+
+        @media screen and (max-width: 1050px) {
+            display: none;
+        }
+    }
+
+    &__main {
+        width: calc(100% - 400px);
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        h3 {
+            @include text(45px, white, 700);
+            @media screen and (max-width: 560px) {
+                font-size: 35px;
+            }
+            @media screen and (max-width: 420px) {
+                font-size: 30px;
+            }
+        }
+
+        @media screen and (max-width: 1050px) {
+            width: 100%;
+        }
+
+        &-holder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            @media screen and (max-width: 620px) {
+                width: 100%;
+                gap: 10px;
+            }
+        }
+
+        &-card {
+            height: 200px;
+            width: 175px;
+            border-radius: 20px;
+            background-color: #5c3113;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+                @include text(100px, white, 800)
+            }
+            @media screen and (max-width: 620px) {
+                width: 33%;
+            }
+        }
+
+        &-options{
+            display: flex;
+            gap: 15px
+        }
+
+        &-button {
+            @include button(300px);
+        }
+
+        &-qr{
+            @include button(60px);
+            @include center();
+            display: none;
+            @media screen and (max-width: 1050px) {
+                display: flex;
+            }
+        }
+    }
+}
