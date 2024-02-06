@@ -1,4 +1,4 @@
-import Container from '../Container/Container';
+import Home from '../Home/Home';
 import Rating from '../Rating/Rating';
 import Admin from "../Admin/Admin";
 import Verify from "../Verify/Verify";
@@ -17,7 +17,7 @@ const Main = () => {
       <BrowserRouter>
         <Routes>
           <Route index element={<Verify />} />
-          <Route path="/home" element={<Container />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/rating" element={<Rating />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/user" element={<UserPage />} />

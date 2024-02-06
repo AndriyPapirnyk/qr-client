@@ -3,21 +3,30 @@
 .rating{
     @include center();
     @include block(100vh);
+    padding: 50px 0 30px 0;
     flex-direction: column;
-    gap: 30px;
+    justify-content: space-between;
+    .head_container{
+        display: flex;
+    }
     .text_head{
         @include text(40px, #fff, 700);
         text-align: center;
-        @media screen and (max-width: 840px) {
-            display: none;
+        @media screen and (max-width: 560px) {
+            font-size: 35px;
+        }
+        @media screen and (max-width: 420px) {
+            font-size: 30px;
         }
     }
     .users{
         @include center();
         flex-direction: column;
         width: 100%;
+        height: auto;
         .blockUser{
             @include row();
+            align-items: center;
             width: 80%;
             margin: 10px 0;
             height: 70px;
@@ -29,52 +38,61 @@
                 width: 95%;
             }
             @media screen and (max-width: 840px) {
-                flex-direction: column;
                 height: auto;
-                padding: 10px 0;
+                padding: 10px 20px;
+            }
+            @media screen and (max-width: 500px) {
+                flex-direction: row;
+                display: flex;
             }
             .number{
                 @include text(25px, #111, 700);
-                @media screen and (max-width: 450px) {
-                    font-size: 16px;
-                }
             }
             .name{
                 @include text(25px, #111, 300);
             }
             .id{
                 @include text(25px, #111, 700);
-                @media screen and (max-width: 840px) {
+                @media screen and (max-width: 1000px) {
                     font-size: 20px;
                 }
-                @media screen and (max-width: 450px) {
-                    font-size: 16px;
+                // @media screen and (max-width: 560px) {
+                //     font-size: 18px;
+                // }
+                @media screen and (max-width: 800px) {
+                    display: none;
                 }
             }
             .points{
-                @include text(25px, #111, 700);
+                width: 35px;
+                height: 35px;
+                border-radius: 3px;
+                @include center();
+                background-color: #5c3113;
+                @include text(25px, #fff, 700);
                 @media screen and (max-width: 840px) {
                     font-size: 20px;
-                }
-                @media screen and (max-width: 450px) {
-                    font-size: 16px;
                 }
             }
             .id__holder{
                 display: flex;
                 gap: 35px;
+                align-items: center;
                 @media screen and (max-width: 890px) {
                     gap: 20px;
                 }
             }
+            .name__holder{
+                display: flex;
+                align-items: center;
+                gap: 60px;
+                @media screen and (max-width: 950px) {
+                    gap: 40px;
+                }
+                @media screen and (max-width: 840px) {
+                    gap: 20px;
+                }
+            }
         }
-    }
-}
-
-.pagination-container{
-    position: absolute;
-    bottom: 30px;
-    @media screen and (max-width: 840px) {
-        bottom: 15px;
     }
 }

@@ -4,6 +4,7 @@ import Block from './rateBolck';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { BounceLoader } from 'react-spinners';
+// import { Link } from 'react-router-dom';
 
 interface User {
   name: string;
@@ -12,6 +13,7 @@ interface User {
 }
 
 const Rating: React.FC = () => {
+    // const [itemsPerPage, setItemsPerPage] = useState(5);
     const itemsPerPage = 5;
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [users, setUsers] = useState(Array<User>);
@@ -54,7 +56,12 @@ const Rating: React.FC = () => {
 
     return (
         <div className='rating'>
-            <h1 className='text_head'>Рейтинг користувачів</h1>
+          <div className="head_container">
+          {/* <Link to={'/home'}>
+          <button className="home_btn">На головну</button>
+          </Link> */}
+            <h1 className='text_head'>Рейтинг</h1>
+            </div>
             <div className="users">
               {loaded ? (
                 <>
