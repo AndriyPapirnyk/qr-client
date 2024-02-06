@@ -102,7 +102,7 @@ const addToCart = (product: cartGood) => {
   };
 
 
-  const handleConfirm = () => { 
+  const handleConfirm = () => {
     if(checkAmount() === true){
       if(getAllPrice() <= userObject.count){
         postHandle()

@@ -33,8 +33,9 @@ const AdminContainer: FC = () => {
             axios.post('http://localhost:8000/api/user/getOrders')
             .then((response: any) => {
                 if(response.status === 200) {
-                    setOrders(response.data);
-                    console.log(response.data)
+                    let newArr = response.data.filter((item: Card) => item.state === 'inProgres')
+                    setOrders(newArr);
+                    console.log(response.data);
                 } else {
                     alert('Ой, щось пішло не так')
                 }
