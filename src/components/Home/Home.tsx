@@ -5,6 +5,7 @@ import { BounceLoader } from 'react-spinners';
 
 // import Header from '../Header/Header';
 import image from './Image/QECode.png';
+import MobileNav from '../MobileNav/MobileNav';
 
 const Home = () => {
 
@@ -32,6 +33,7 @@ const Home = () => {
 }, []);
 
     return (
+        <>
         <div className="home">
             {/* <Header /> */}
             <div className='home__container'>
@@ -66,6 +68,8 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        <MobileNav />
+        </>
     )
 }
 
