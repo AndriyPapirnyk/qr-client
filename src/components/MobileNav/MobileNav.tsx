@@ -1,8 +1,9 @@
 import './MobileNav.scss';
-import homeImg from './img/home.png';
-import ratingImg from './img/rating.png';
-import userImg from './img/user.png';
-import cartImg from './img/cart.png';
+// import homeImg from './img/home.png';
+// import ratingImg from './img/rating.png';
+// import userImg from './img/user.png';
+// import cartImg from './img/cart.png';
+// import burger from './img/burger.png';
 
 //
 
@@ -11,17 +12,22 @@ import { Link } from 'react-router-dom';
 export default function MobileNav() {
   return (
     <nav className='mobile-nav'>
-        <Link to='/home' style={{zIndex: 11}}>
-            <img src={homeImg} alt="" />
+        {/* <img className='burger' src={burger} alt="" /> */}
+        <Link className='link' to='/home'>
+            {/* <img src={homeImg} alt="" /> */}
+            <p>Home</p>
         </Link>
-        <Link to='/rating' style={{zIndex: 11}}>
-            <img src={ratingImg} alt=""  />
+        <Link className='link' to='/rating'>
+            {/* <img src={ratingImg} alt=""  /> */}
+            <p>Rating</p>
         </Link>
-        <Link to='/shop' style={{zIndex: 11}}>
-            <img src={cartImg} style={{width: '35px'}} alt="" />
+        <Link className='link' to='/shop'>
+            {/* <img src={cartImg} style={{width: '35px'}} alt="" /> */}
+            <p>Shop</p>
         </Link>
-        <Link to='/user' style={{zIndex: 11}}>
-            <img src={userImg} alt="" />
+        <Link className='link' to='/user'>
+            {/* <img src={userImg} alt="" /> */}
+            <p>Profile</p>
         </Link>        
     </nav>
   )

@@ -4,6 +4,8 @@ import Block from './rateBolck';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { BounceLoader } from 'react-spinners';
+import burger from '../../assets/burger.png';
+import MobileNav from '../MobileNav/MobileNav';
 // import { Link } from 'react-router-dom';
 
 interface User {
@@ -17,7 +19,12 @@ const Rating: React.FC = () => {
     const itemsPerPage = 5;
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [users, setUsers] = useState(Array<User>);
-    const [loaded, setLoaded] = useState<boolean>(false)
+    const [loaded, setLoaded] = useState<boolean>(false);
+    const [opened, setOpened] = useState<boolean>(false);
+
+  const handleBurger = () : void => {
+    setOpened(!opened);
+  }
 
     useEffect(() => {
       const fetchData = async () => {
@@ -56,6 +63,7 @@ const Rating: React.FC = () => {
 
     return (
         <div className='rating'>
+          <img onClick={handleBurger} className='burger' src={burger} alt="" />
           <div className="head_container">
           {/* <Link to={'/home'}>
           <button className="home_btn">На головну</button>
@@ -81,6 +89,7 @@ const Rating: React.FC = () => {
                 className='pagination-buttons'
             />
             </Stack>
+            {opened && <MobileNav />}
         </div>
   );
 };

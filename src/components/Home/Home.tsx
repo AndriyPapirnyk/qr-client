@@ -6,6 +6,7 @@ import { BounceLoader } from 'react-spinners';
 // import Header from '../Header/Header';
 import image from './Image/QECode.png';
 import MobileNav from '../MobileNav/MobileNav';
+import burger from '../../assets/burger.png';
 
 const Home = () => {
 
@@ -13,6 +14,11 @@ const Home = () => {
   const [digit1, setDigit1] = useState<number>(0)
   const [digit2, setDigit2] = useState<number>(0)
   const [digit3, setDigit3] = useState<number>(0)
+  const [opened, setOpened] = useState<boolean>(false);
+
+  const handleBurger = () : void => {
+    setOpened(!opened);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +42,7 @@ const Home = () => {
         <>
         <div className="home">
             {/* <Header /> */}
+            <img onClick={handleBurger} className='burger' src={burger} alt="" />
             <div className='home__container'>
                     <div className="home__holder" >
                         <img src={image} alt="QR Code" />
@@ -68,7 +75,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-        <MobileNav />
+        {opened && <MobileNav />}
         </>
     )
 }
