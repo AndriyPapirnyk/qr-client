@@ -6,6 +6,7 @@ import { BounceLoader } from 'react-spinners';
 // import Header from '../Header/Header';
 import image from './Image/QECode.png';
 import MobileNav from '../MobileNav/MobileNav';
+import QRPopup from './QRPopup/QRPopup';
 import burger from '../../assets/burger.png';
 
 const Home = () => {
@@ -15,6 +16,11 @@ const Home = () => {
   const [digit2, setDigit2] = useState<number>(0)
   const [digit3, setDigit3] = useState<number>(0)
   const [opened, setOpened] = useState<boolean>(false);
+  const [isQRCodeOpen, setIsQRCodeOpen] = useState<boolean>(false);
+
+  const openQR = () => {
+    setIsQRCodeOpen(!isQRCodeOpen);
+  };
 
   const handleBurger = () : void => {
     setOpened(!opened);
@@ -70,12 +76,13 @@ const Home = () => {
                             Рейтинг
                         </button>
                     </Link>
-                    <button className='home__main-qr'>QR</button>
+                    <button onClick={openQR} className='home__main-qr'>QR</button>
                     </div>
                 </div>
             </div>
         </div>
         {opened && <MobileNav />}
+        {isQRCodeOpen && <QRPopup onCloseQR={openQR}/>}
         </>
     )
 }

@@ -90,10 +90,10 @@ const UserPage = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='directions'>
+                                {/* <div className='directions'>
                                     <Link className='text' to="/home">{'> Головна'}</Link>
                                     <Link className='text' to="/rating">{'> Рейтинг'}</Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

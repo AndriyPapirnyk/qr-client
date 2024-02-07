@@ -74,7 +74,7 @@ const Rating: React.FC = () => {
               {loaded ? (
                 <>
                 {displayedUsers.map((user, i) => (
-                  <Block key={user.userId} name={user.name} id={user.userId} points={user.count} place={startIndex + i + 1} />
+                  <Block key={user.userId} name={user.name} points={user.count} place={startIndex + i + 1} />
               ))}
                 </>
               ) : (<BounceLoader color="#36d7b7" size={200}/>)}
