@@ -1,9 +1,9 @@
+import './Main.scss';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from '../Home/Home';
 import Rating from '../Rating/Rating';
 import Admin from "../Admin/Admin";
 import Verify from "../Verify/Verify";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './Main.scss'
 import UserPage from "../UserPage/userPage";
 import NotFound from '../NotFound/NotFound';
 import HistoryPage from '../history/history';

@@ -23,11 +23,10 @@ interface UserData {
 }
 
 function Verify() {
-
   const navigate = useNavigate();
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
   const [postKey, setPostKey] = useState<boolean>(false);
-  const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", history: [], __v: 0, _id: "" } })
+  const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", history: [], __v: 0, _id: "" } });
 
   const getDeviceId = async () => {
     return new Promise<string>((resolve, _reject) => {
@@ -45,7 +44,7 @@ function Verify() {
       const postHandle = async () => {
         const deviceId = await getDeviceId()
         console.log(deviceId)
-        await axios.post('https://qr-server-129a.onrender.com/api/user/verifyUser', {deviceId})
+        await axios.post('https://qr-server-129a.onrender.com/api/user/verifyUser', { deviceId })
           .then((response: any) => {
             if (response.status !== 404) {
               console.log(response.data);
@@ -62,9 +61,8 @@ function Verify() {
       }
       postHandle();
     }
-  }, [postKey])
+  }, [postKey]);
 
-  
   const getHomePage = () => {
     navigate('/home')
   }
@@ -73,25 +71,25 @@ function Verify() {
 
   return (
     <div className="verify">
-        <div className="verify__container">
-          {loading ? (<BounceLoader color="#36d7b7" size={200}/>) : (
-            resData.user ? (
-              <>
+      <div className="verify__container">
+        {loading ? (<BounceLoader color="#36d7b7" size={200} />) : (
+          resData.user ? (
+            <>
               <h1>Вітаю, {resData.user.name}</h1>
               {resData.scanned ? (<h2>Ви вже сканували сьогодні <br />Зачекайте трохи 😊 </h2>) : (<h2>Дякуємо за відвідування, + 1 бал</h2>)}
               <button onClick={getHomePage}>На головну</button>
-              </>    
-            ) : (
-              <>
+            </>
+          ) : (
+            <>
               <h1>Вітаємо на QR Harbor</h1>
-              <LoginForm/>
-              <Link to="/home" style={{color: '#fff', textDecoration: 'underline'}}>Перейти до QR-коду</Link>
-              </>
-            )
-          )}
-        </div>
+              <LoginForm />
+              <Link to="/home" style={{ color: '#fff', textDecoration: 'underline' }}>Перейти до QR-коду</Link>
+            </>
+          )
+        )}
+      </div>
     </div>
   )
 }
 
-export default Verify
+export default Verify;
