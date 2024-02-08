@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { parse } from 'cookie';
 import { Link } from 'react-router-dom';
+import burger from '../../assets/burger.png';
+import MobileNav from '../MobileNav/MobileNav';
 import './userPage.scss';
 
 const UserPage = () => {
@@ -11,6 +13,12 @@ const UserPage = () => {
         history: [],
         lastScan: '',
     });
+    const [opened, setOpened] = useState<boolean>(false);
+
+  const handleBurger = () : void => {
+    setOpened(!opened);
+  }
+
 
     const getCookieValue = (cookieName: string) => {
         const cookies = parse(document.cookie);
@@ -33,6 +41,7 @@ const UserPage = () => {
 
     return (
         <div className='userBox'>
+            <img onClick={handleBurger} className='burger' src={burger} alt="" />
             {userObject ? (
                 <>
                     <header className="head">
@@ -81,10 +90,10 @@ const UserPage = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='directions'>
+                                {/* <div className='directions'>
                                     <Link className='text' to="/home">{'> Головна'}</Link>
                                     <Link className='text' to="/rating">{'> Рейтинг'}</Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -97,6 +106,7 @@ const UserPage = () => {
                     </span>
                 </p>
             )}
+            {opened && <MobileNav/>}
         </div>
     );
 };

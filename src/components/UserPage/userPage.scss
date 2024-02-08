@@ -1,3 +1,5 @@
+@import '../../scss/mixins.scss';
+
 .userBox {
     width: 100%;
     height: 100vh;
@@ -38,7 +40,7 @@
                 justify-content: center;
                 .userName {
                     color: #fff;
-                    font-size: 20px;
+                    font-size: 32px;
                     margin-top: 20px;
                     font-weight: 700;
                     letter-spacing: 3px;
@@ -104,11 +106,19 @@
                 display: none;
             }
 
+            .congrats{
+                h1{
+                    @include text(35px, #fff, 700)
+                }
+            }
+
             h1 {
-                color: #fff;
-                font-size: 40px;
-                font-weight: 500;
+                // color: #fff;
+                // font-size: 40px;
+                // font-weight: 500;
                 text-align: center;
+                @include text(30px, #fff, 700)
+
             }
 
             .mainRight {
@@ -127,8 +137,9 @@
 
                     .blockPoints {
                         width: 100%;
-                        height: 50px;
+                        height: 70px;
                         padding: 0 20px;
+                        font-size: 45px;
                         background-color: #643718;
                         color: #fff;
                         display: flex;
