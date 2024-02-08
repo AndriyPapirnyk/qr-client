@@ -51,7 +51,7 @@
     }
     &-data__container {
         width: 100%;
-        height: 65%;
+        height: min-content;
         background-color: transparent;
         padding: 3px;
         display: flex;
@@ -79,6 +79,7 @@
     }
 
     &-btn__container {
+        margin-top: 20px;
         width: 100%;
         height: min-content;
         background-color: transparent;
