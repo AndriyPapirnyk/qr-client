@@ -3,15 +3,25 @@
 .admin__container {
     @include block(93vh);
     min-height: 93vh;
-    @include center;
     flex-wrap: wrap;
     border: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    &__row{
+        @include row();
+        display: flex;
+        justify-content: center;
+    }
 
     .card__conatiner {
         padding: 20px 0;
         width: 80%;
-        height: min-content;
+        
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
     }
 
@@ -20,5 +30,67 @@
         justify-content: start;
         width: 100%;
         height: 8%;
+    }
+}
+.reasonPopup{
+    &__container{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+    }
+    z-index: 1000;
+        &:hover{
+            transition: 0.4s;
+            margin-top: -20px;
+        }
+        padding: 30px 20px;
+        width: 500px;
+        height: min-content;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    transition: 0.5s;
+    &__row{
+        @include row();
+        margin-bottom: 30px;
+        justify-content: end;
+    }
+    &__closeBtn{
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        transition: 0.4s;
+        &:hover{
+            transform: rotate(180deg);
+            transition: 0.4s;
+        }
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__header{
+        @include text(35px, #000, 600);
+    }
+    &__input{
+        @include input(300px);
+        border: 1px solid #000;
+        height: 40px;
+        margin: 20px 0;
+    }
+    &__submitBtn{
+        @include center();
+        @include button(150px);
+        height: 40px;
+        border: 1px solid #000;
+        margin-bottom: 30px;
     }
 }

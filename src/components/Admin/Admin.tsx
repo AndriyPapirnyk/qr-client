@@ -8,6 +8,7 @@ const Admin = () => {
 
     const [isComponent, setIsComponent] = useState<'Заявки' | 'Історія' | 'Створити'>('Заявки');
 
+
     const switchChange = (component: 'Заявки' | 'Історія' | 'Створити') => {
         setIsComponent(component);
     }

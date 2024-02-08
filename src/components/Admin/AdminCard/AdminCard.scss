@@ -7,7 +7,14 @@
     background-color: rgb(246, 242, 242);
     border-radius: 10px;
     padding: 20px 30px;
+    padding-bottom: 30px;
     margin: 20px 0;
+    transition: 0.4s;
+    &:hover{
+        box-shadow: 0px 80px 80px -20px rgba(255, 63, 58, 0.16), 0px 30px 24px -10px rgba(255, 63, 58, 0.1), 0px 12px 10px -6px rgba(255, 63, 58, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+        transition: 0.4s;
+        transform: rotateY(-20deg);
+      }
     &__productGroup{
         width: 50%;
         height: 100%;
@@ -44,14 +51,12 @@
     }
     &-data__container {
         width: 100%;
-        height: 65%;
+        height: min-content;
         background-color: transparent;
         padding: 3px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 40px;
-
         h3 {
             @include text(23px, black, 700)
         }
@@ -74,13 +79,13 @@
     }
 
     &-btn__container {
+        margin-top: 20px;
         width: 100%;
         height: min-content;
         background-color: transparent;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-right: 15px;
         p {
             @include text(23px, black, 700)
         }
@@ -99,8 +104,21 @@
         }
     }
 
-    .red {
+    
+
+}
+.admin__btn {
+    @include text(18px, white, 600);
+    cursor: pointer;
+    width: 190px;
+    height: 42px;
+    background-color: rgb(27, 225, 27);
+    border-radius: 8px;
+    margin: 4px;
+    &_grey{
+        background-color: grey;
+    }
+    &_red {
         background-color: rgb(232, 22, 22);
     }
-
 }
