@@ -76,7 +76,7 @@ const AdminContainer: FC = () => {
             <div className="card__conatiner">
                 {
                     adminCards.map((item) => (
-                        <AdminCard key={item._id} name={item.name} date={item.date} _id={item._id} userId={item.userId} products={item.products} totalPrice={item.totalPrice} />
+                        <AdminCard  key={item._id} setReasonPopupKey={setReasonPopupKey} reasonPopupKey={reasonPopupKey} name={item.name} date={item.date} _id={item._id} userId={item.userId} setOrders={setOrders} products={item.products} totalPrice={item.totalPrice} />
                     ))
                 }
 

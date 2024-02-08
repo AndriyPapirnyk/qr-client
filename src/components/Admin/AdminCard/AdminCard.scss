@@ -50,8 +50,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 40px;
-
         h3 {
             @include text(23px, black, 700)
         }
@@ -80,7 +78,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-right: 15px;
         p {
             @include text(23px, black, 700)
         }
