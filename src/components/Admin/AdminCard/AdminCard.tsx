@@ -23,7 +23,7 @@ interface Card {
     reasonPopupKey: (boolean | string)[]
 }
 
-const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date, setOrders, setReasonPopupKey, reasonPopupKey }) => {
+const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date, setOrders, setReasonPopupKey }) => {
 
     const [expandKey, setExpandKey] = useState<boolean>(false);
     const [namelist, setNameList] = useState<string>('');
