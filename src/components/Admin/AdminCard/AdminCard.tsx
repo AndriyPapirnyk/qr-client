@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import './AdminCard.scss';
+import axios from 'axios';
 
 
 
@@ -11,19 +12,22 @@ interface cartGood {
   }
 
 interface Card {
+    setOrders: any
     userId: number,
     _id: string,
     date: string
     name: string,
     products: Array<cartGood>,
-    totalPrice: number
+    totalPrice: number,
+    setReasonPopupKey: any,
+    reasonPopupKey: (boolean | string)[]
 }
 
-const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date }) => {
+const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date, setOrders, setReasonPopupKey, reasonPopupKey }) => {
 
     const [expandKey, setExpandKey] = useState<boolean>(false);
     const [namelist, setNameList] = useState<string>('');
-
+    
     useEffect(()=>{
         let newArr = [];
         for(let el of products){
@@ -35,6 +39,25 @@ const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date }) 
 
     const expandHandle = () => {
         setExpandKey(!expandKey);
+    }
+
+    const acceptHandle = async () => {
+        await axios.post('http://localhost:8000/api/user/acceptOrder', {products, userId, _id})
+        .then((response: any) => {
+          if (response.status !== 404) {
+            let newArr = response.data.filter((item: any) => item.state === 'inProgres')
+            setOrders(newArr);
+          } else {
+            alert('Something went wrong!');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+
+    const reasonHandle = () => {
+      setReasonPopupKey([true, _id]);
     }
 
     return (
@@ -61,9 +84,9 @@ const AdminCard: FC<Card> = ({ _id, userId, name, products, totalPrice, date }) 
                     </div>
                 ) : <div className='data__text'><p>Товари: {namelist}</p></div>}
                 <div className="admin__card__btnGroup">
-                <button className="admin__card-btn" id={'p'+_id}>Підтвердити</button>
-                <button className="admin__card-btn red" id={'v'+_id}>Відхилити</button>
-                <button className=" admin__card-btn admin__card-btn_grey" onClick={expandHandle}>{expandKey ? 'Згорнути' : 'Розширити'}</button>
+                <button className="admin__btn" onClick={acceptHandle} id={'p'+_id}>Підтвердити</button>
+                <button className="admin__btn admin__btn_red" onClick={reasonHandle} id={'v'+_id}>Відхилити</button>
+                <button className=" admin__btn admin__btn_grey" onClick={expandHandle}>{expandKey ? 'Згорнути' : 'Розширити'}</button>
                 </div>
             </div>
 

@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './AdminHistoryCard.scss';
+import axios from 'axios';
+
 
 interface cartGood {
     name: string;
@@ -9,6 +11,7 @@ interface cartGood {
   }
 
 interface Card {
+    refusedReason: string,
     filterType: string,
     setOrders: any
     userId: number,
@@ -20,7 +23,7 @@ interface Card {
     state: String,
 }
 
-const AdminHistoryCard: FC<Card> = ({  _id, userId, name, products, totalPrice, date, state, setOrders }) => {
+const AdminHistoryCard: FC<Card> = ({  _id, userId, name, products, refusedReason, totalPrice, date, state, setOrders }) => {
 
     const [nameList, setNameList] = useState<string>('')
 
@@ -34,10 +37,21 @@ const AdminHistoryCard: FC<Card> = ({  _id, userId, name, products, totalPrice, 
         console.log(newArr.join())
     })
 
-    const stateChangehandle = () => {
-
+    const stateChangehandle = async (e: any) => {
+        let orderId = e.target.id.substring(3);
+        await axios.post('http://localhost:8000/api/user/orderStateChange', {orderId})
+        .then((response: any) => {
+          if (response.status !== 404) {
+            setOrders(response.data);
+          } else {
+            alert('Something went wrong!');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     }
-const AdminHistoryCard: FC<HistoryCard> = ({ id, name, product, points, place }) => {
+
     return (
         <div className="admin__history-card card">
             <div className="card-data__container">
@@ -49,8 +63,10 @@ const AdminHistoryCard: FC<HistoryCard> = ({ id, name, product, points, place })
             <div className='admin__text'><p>Товари: {nameList}</p></div>
               {  state === 'unaccepted' ?
                 (    
-                <div className='admin__text'><p>Причина: Не було товару в наявності</p></div> 
+                <>
+                 <div className='admin__text'><p>Причина: {refusedReason}</p></div> 
                  <button id={'btn'+ _id} className="admin__btn admin__btn_grey" onClick={stateChangehandle}>Повернути</button>
+                </>
                 )
                 : ''}
             </div>

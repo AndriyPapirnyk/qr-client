@@ -105,7 +105,7 @@ const addToCart = (product: cartGood) => {
   const handleConfirm = () => {
     if(checkAmount() === true){
       if(getAllPrice() <= userObject.count){
-        postHandle()
+        postHandle();
       }else{
         alert('You dont have enough points')
       }
@@ -132,7 +132,7 @@ const addToCart = (product: cartGood) => {
   const postHandle = async () => {
     const fullPrice = getAllPrice();
     const userId = userObject._id
-    await axios.post('https://qr-server-129a.onrender.com/api/user/saveRequest', {userId, fullPrice, cart})
+    await axios.post('http://localhost:8000/api/user/saveRequest', {userId, fullPrice, cart})
     .then((response: any) => {
       if (response.status !== 404) {
         handleClient();
