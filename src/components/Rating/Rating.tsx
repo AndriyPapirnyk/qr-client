@@ -64,10 +64,8 @@ const Rating: React.FC = () => {
     return (
         <div className='rating'>
           <img onClick={handleBurger} className='burger' src={burger} alt="" />
+          <div className="holder">
           <div className="head_container">
-          {/* <Link to={'/home'}>
-          <button className="home_btn">На головну</button>
-          </Link> */}
             <h1 className='text_head'>Рейтинг</h1>
             </div>
             <div className="users">
@@ -77,8 +75,9 @@ const Rating: React.FC = () => {
                   <Block key={user.userId} name={user.name} points={user.count} place={startIndex + i + 1} />
               ))}
                 </>
-              ) : (<BounceLoader color="#36d7b7" size={200}/>)}
+              ) : (<BounceLoader className='loader' color="#36d7b7" size={200}/>)}
             </div>
+          </div>
             <Stack spacing={2} className='pagination-container'>
             <Pagination
                 count={totalPages}

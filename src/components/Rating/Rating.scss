@@ -5,7 +5,14 @@
     @include block(100vh);
     padding: 50px 0 30px 0;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    .holder{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        @include center();
+    }
     .head_container{
         display: flex;
     }
@@ -24,6 +31,9 @@
         flex-direction: column;
         width: 100%;
         height: auto;
+        .loader{
+            margin: 125px 0;
+        }
         .blockUser{
             @include row();
             align-items: center;
@@ -95,4 +105,9 @@
             }
         }
     }
+}
+
+.pagination-container{
+    position: absolute;
+    bottom: 30px;
 }

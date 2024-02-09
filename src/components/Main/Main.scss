@@ -10,10 +10,10 @@
 .burger{
     position: absolute;
     width: 60px;
-    top: 10px;
+    top: 15px;
     right: 10px;
     cursor: pointer;
-    display: none;
+    display: flex;
     z-index: 11;
     @media screen and (max-width: 1050px) {
         display: flex;

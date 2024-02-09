@@ -110,6 +110,10 @@
                 h1{
                     @include text(35px, #fff, 700)
                 }
+                @media screen and (max-width: 520px) {
+                    display: flex;
+                    flex-direction: column;
+                }
             }
 
             h1 {
@@ -255,7 +259,7 @@
     }
     .userBox .main .right .congrats{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         .image{

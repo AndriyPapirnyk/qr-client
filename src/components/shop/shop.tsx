@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { parse } from 'cookie';
 import Cookies from 'js-cookie';
 import './shop.scss';
 import Good from './Good';
 import axios from 'axios';
+import { BounceLoader } from 'react-spinners';
+import burger from '../../assets/burger.png';
+import MobileNav from '../MobileNav/MobileNav';
 
 interface Good {
   name: string;
@@ -24,7 +27,7 @@ interface cartGood {
 
 const ShopPage = () => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [userObject, setUserObject] = useState({
     name: '',
@@ -36,6 +39,13 @@ const ShopPage = () => {
 });
 
   const [products, setProducts] = useState(Array<Good>);
+  const [loaded, setLoaded] = useState<boolean>(false);
+
+  const [opened, setOpened] = useState<boolean>(false);
+
+  const handleBurger = () : void => {
+    setOpened(!opened);
+  }
   
   const getCookieValue = (cookieName: string) => {
     const cookies = parse(document.cookie);
@@ -62,6 +72,7 @@ useEffect(() => {
         if (response.status !== 404) {
           console.log(response.data);
           setProducts(response.data);
+          setLoaded(true);
         } else {
           alert('Something went wrong!');
         }
@@ -137,7 +148,7 @@ const addToCart = (product: cartGood) => {
       if (response.status !== 404) {
         handleClient();
         setUserObject(response.data.user);
-        setProducts(response.data.products);
+        setProducts(response.data.products); 
         Cookies.set('user', JSON.stringify(response.data));
       } else {
         alert('Something went wrong!');
@@ -163,26 +174,29 @@ const addToCart = (product: cartGood) => {
     }
   }
 
-  const returnFunc = () => {
-    navigate('/user')
-  }
+  // const returnFunc = () => {
+  //   navigate('/user')
+  // }
 
  
   return (
     <div className="shopPage">
+      <img onClick={handleBurger} className='burger' src={burger} alt="" />
       <div className="row">
         <div className="row__left">
         <h2>You Have: {userObject.count > 0 ? userObject.count : '0' } Points</h2>
         </div>
         <div className="row__right">
-          <div className="shopPage__closeBtn" onClick={returnFunc}>Return</div>
+          {/* <div className="shopPage__closeBtn" onClick={returnFunc}>Return</div> */}
         </div>
       </div>
-      <h1 className="shoph1">ShopPage</h1>
+      <h1 className="shoph1">QR Harbor Shop</h1>
       <div className="blockShop">
-        {products.map((item) => (
-          <Good key={item._id} {...item}  addToCart={addToCart} />
-        ))}
+        {loaded ? (
+          products.map((item) => (
+            <Good key={item._id} {...item}  addToCart={addToCart} />
+          ))
+        ) : (<BounceLoader className='loader' color="#36d7b7" size={200}/>)}
       </div>
       <div className="cart">
         <h2>Your Cart</h2>
@@ -203,8 +217,11 @@ const addToCart = (product: cartGood) => {
           </button>
         )}
       </div>
+      {opened && <MobileNav />}
     </div>
   );
 };
 
 export default ShopPage;
+
+

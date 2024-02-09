@@ -7,10 +7,11 @@ body {
 .shopPage {
     width: 100%;
     min-height: 100vh;
-    padding: 30px;
+    // padding: 30px;
     .shoph1 {
         color: #fff;
         text-align: center;
+        margin-top: 50px;
     }
 
     .blockShop {
@@ -19,6 +20,10 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+
+        .loader{
+            margin: 95px 0;
+        }
 
         .good {
             cursor: pointer;
@@ -107,15 +112,20 @@ body {
 
 .row{
     @include row();
-    margin-bottom: 20px;
+    margin: 30px 0 0 0;
+    padding: 0 0 0 30px;
     &__left,
     &__right{
         width: 50%;
         height: 100%;
         display: flex;
         align-items: center;
+        h2{
+            color: #fff;
+        }
     }
     &__right{
         justify-content: end;
     }
 }
+
