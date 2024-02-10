@@ -20,20 +20,18 @@ const UserPage = () => {
     setOpened(!opened);
   }
 
-
     const getCookieValue = (cookieName: string) => {
         const cookies = parse(document.cookie);
         return cookies[cookieName];
     };
 
     useEffect(() => {
-        const userCookieValue = getCookieValue('user');  // Замініть на фактичне ім'я кукі
+        const userCookieValue = getCookieValue('user'); 
 
         if (userCookieValue) {
             try {
                 const parsedUserObject = JSON.parse(userCookieValue);
                 setUserObject(parsedUserObject);
-                console.log(parsedUserObject);
             } catch (error) {
                 console.error('Error parsing user cookie value:', error);
             }
@@ -91,10 +89,6 @@ const UserPage = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                {/* <div className='directions'>
-                                    <Link className='text' to="/home">{'> Головна'}</Link>
-                                    <Link className='text' to="/rating">{'> Рейтинг'}</Link>
-                                </div> */}
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './shop.scss';
 
-
 interface cartGood {
   name: string;
   _id: string;
@@ -26,7 +25,6 @@ const Good: React.FC<GoodProps> = ({ name, price, _id, img, amount, addToCart })
   });
 
   useEffect(() => {
-    // Save the selected state in local storage whenever it changes
     localStorage.setItem(`selected_${_id}`, String(selected));
   }, [_id, selected]);
 
@@ -41,8 +39,6 @@ const Good: React.FC<GoodProps> = ({ name, price, _id, img, amount, addToCart })
     }
   addToCart(data) 
   };
-
-  
 
   return (
     <div className={`good ${selected ? 'selected' : ''}`} key={_id} onClick={handleClick}>

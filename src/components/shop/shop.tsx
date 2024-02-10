@@ -27,8 +27,6 @@ interface cartGood {
 
 const ShopPage = () => {
 
-  // const navigate = useNavigate();
-
   const [userObject, setUserObject] = useState({
     name: '',
     userId: 0,
@@ -40,7 +38,6 @@ const ShopPage = () => {
 
   const [products, setProducts] = useState(Array<Good>);
   const [loaded, setLoaded] = useState<boolean>(false);
-
   const [opened, setOpened] = useState<boolean>(false);
 
   const handleBurger = () : void => {
@@ -50,15 +47,14 @@ const ShopPage = () => {
   const getCookieValue = (cookieName: string) => {
     const cookies = parse(document.cookie);
     return cookies[cookieName];
-};
+  };
 
 useEffect(() => {
-    const userCookieValue = getCookieValue('user');  // Замініть на фактичне ім'я кукі
+    const userCookieValue = getCookieValue('user');  
     if (userCookieValue) {
         try {
             const parsedUserObject = JSON.parse(userCookieValue);
             setUserObject(parsedUserObject);
-            console.log(parsedUserObject);
         } catch (error) {
             console.error('Error parsing user cookie value:', error);
         }
@@ -70,7 +66,6 @@ useEffect(() => {
       await axios.post('https://qr-server-129a.onrender.com/api/user/getAllProducts', {})
       .then((response: any) => {
         if (response.status !== 404) {
-          console.log(response.data);
           setProducts(response.data);
           setLoaded(true);
         } else {
@@ -90,7 +85,6 @@ useEffect(() => {
   const [cart, setCart] = useState(Array<cartGood>);
 
   useEffect(() => {
-    // Load cart from localStorage on component mount
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       setCart(JSON.parse(savedCart));
@@ -173,11 +167,6 @@ const addToCart = (product: cartGood) => {
       return true
     }
   }
-
-  // const returnFunc = () => {
-  //   navigate('/user')
-  // }
-
  
   return (
     <div className="shopPage">
@@ -187,7 +176,6 @@ const addToCart = (product: cartGood) => {
         <h2>You Have: {userObject.count > 0 ? userObject.count : '0' } Points</h2>
         </div>
         <div className="row__right">
-          {/* <div className="shopPage__closeBtn" onClick={returnFunc}>Return</div> */}
         </div>
       </div>
       <h1 className="shoph1">QR Harbor Shop</h1>

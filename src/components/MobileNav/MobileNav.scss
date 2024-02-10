@@ -12,9 +12,6 @@
     flex-direction: column;
     display: flex;
     z-index: 10;
-    // @media screen and (max-width: 1050px) {
-    //     display: flex;
-    // }
     .link{
         width: 200px;
         display: flex;
@@ -24,7 +21,6 @@
         gap: 30px;
         transition: .5s;
         p{
-            // @include text(40px, #fff, 700);
             @include text(clamp(40px, 5vw, 55px), #fff, 700);
             &:hover{
                 color: rgb(228, 148, 87);
@@ -32,10 +28,4 @@
             }
         }
     }
-    // img{
-    //     width: 30px;
-    //     &:nth-child(3) {
-    //         width: 35px;
-    //     }
-    // }
 }

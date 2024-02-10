@@ -6,7 +6,6 @@ import Stack from '@mui/material/Stack';
 import { BounceLoader } from 'react-spinners';
 import burger from '../../assets/burger.png';
 import MobileNav from '../MobileNav/MobileNav';
-// import { Link } from 'react-router-dom';
 
 interface User {
   name: string;
@@ -15,7 +14,6 @@ interface User {
 }
 
 const Rating: React.FC = () => {
-    // const [itemsPerPage, setItemsPerPage] = useState(5);
     const itemsPerPage = 5;
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [users, setUsers] = useState(Array<User>);
@@ -64,7 +62,6 @@ const Rating: React.FC = () => {
     return (
         <div className='rating'>
           <img onClick={handleBurger} className='burger' src={burger} alt="" />
-          {/* <div className="holder"> */}
           <div className="head_container">
             <h1 className='text_head'>Рейтинг</h1>
             </div>
@@ -77,7 +74,6 @@ const Rating: React.FC = () => {
                 </>
               ) : (<BounceLoader className='loader' color="#36d7b7" size={200}/>)}
             </div>
-          {/* </div> */}
             <Stack spacing={2} className='pagination-container'>
             <Pagination
                 count={totalPages}

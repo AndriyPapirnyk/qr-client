@@ -29,7 +29,6 @@ const LoginForm = () => {
             axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name, deviceId: deviceId})
             .then((response: any) => {
                 if(response.status === 200) {
-                    console.log(response.data.user);
                     Cookies.set('user', JSON.stringify(response.data.user));
                     navigate('/home');
                 } else {

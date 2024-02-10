@@ -3,7 +3,6 @@ import './Home.scss';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 
-// import Header from '../Header/Header';
 import image from './Image/QECode.png';
 import MobileNav from '../MobileNav/MobileNav';
 import QRPopup from './QRPopup/QRPopup';
@@ -47,7 +46,6 @@ const Home = () => {
     return (
         <>
         <div className="home">
-            {/* <Header /> */}
             <img onClick={handleBurger} className='burger' src={burger} alt="" />
             <div className='home__container'>
                     <div className="home__holder" >

@@ -2,12 +2,10 @@
 
 .home {
     overflow-x: hidden;
-
     @include block(100%);
     position: relative;
     @media screen and (max-width: 1050px) {
         padding: 20px 0;
-        // height: auto;
     }
     &__container{
         width: 1140px;

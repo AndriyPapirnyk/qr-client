@@ -44,11 +44,9 @@ function Verify() {
     if (postKey) {
       const postHandle = async () => {
         const deviceId = await getDeviceId()
-        console.log(deviceId)
         await axios.post('https://qr-server-129a.onrender.com/api/user/verifyUser', { deviceId })
           .then((response: any) => {
             if (response.status !== 404) {
-              console.log(response.data);
               setResData(response.data);
               setLoading(false);
               Cookies.set('user', JSON.stringify(response.data.user));
@@ -68,7 +66,6 @@ function Verify() {
     navigate('/home')
   }
 
-  console.log(resData)
 
   return (
     <div className="verify">
