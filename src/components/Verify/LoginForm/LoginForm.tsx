@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './LoginForm.scss';
 import axios from 'axios';
 import Fingerprint2 from 'fingerprintjs2';
+import Cookies from 'js-cookie';
 
 const LoginForm = () => {
 
@@ -28,8 +29,9 @@ const LoginForm = () => {
             axios.post('https://qr-server-129a.onrender.com/api/user/createUser', {name: name, deviceId: deviceId})
             .then((response: any) => {
                 if(response.status === 200) {
-                    console.log(response)
-                    navigate('/home')
+                    console.log(response.data.user);
+                    Cookies.set('user', JSON.stringify(response.data.user));
+                    navigate('/home');
                 } else {
                     alert('Ой, щось пішло не так')
                 }
