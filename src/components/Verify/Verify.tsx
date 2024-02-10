@@ -73,7 +73,7 @@ function Verify() {
         {loading ? (<BounceLoader color="#36d7b7" size={200} />) : (
           resData.user ? (
             <>
-              <h1>Вітаю, {resData.user.name}</h1>
+              <h1>Вітаю, <br /> {resData.user.name}</h1>
               {resData.scanned ? (<h2>Ви вже сканували сьогодні <br />Зачекайте трохи 😊 </h2>) : (<h2>Дякуємо за відвідування, + 1 бал</h2>)}
               <button onClick={getHomePage}>На головну</button>
             </>

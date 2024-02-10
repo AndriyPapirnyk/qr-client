@@ -1,11 +1,12 @@
 import './history.scss';
 import { useState, useEffect } from 'react';
 import { parse } from 'cookie';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import HistoryBlock from './historyBlock';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { BounceLoader } from 'react-spinners';
+import backImg from './img/back.png';
 
 const HistoryPage: React.FC = () => {
   const [userObject, setUserObject] = useState({
@@ -35,7 +36,7 @@ const HistoryPage: React.FC = () => {
         const parsedUserObject = JSON.parse(userCookieValue);
         setUserObject(parsedUserObject);
         console.log(parsedUserObject);
-        setLoaded(true); // Set loaded to true when data is successfully fetched
+        setLoaded(true); 
       } catch (error) {
         console.error('Error parsing user cookie value:', error);
       }
@@ -53,6 +54,9 @@ const HistoryPage: React.FC = () => {
 
   return (
     <div className='history'>
+      <Link className='history__back' to='/user'>
+          <img src={backImg} alt="" />
+      </Link>
       <h1 className='historyMain'>Історія сканувань</h1>
       <div className="blockMain">
         {loaded ? (
