@@ -28,6 +28,7 @@ const Rating: React.FC = () => {
       const fetchData = async () => {
         try {
           const response = await fetch('https://qr-server-129a.onrender.com/api/user/getAllUsers');
+          
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
