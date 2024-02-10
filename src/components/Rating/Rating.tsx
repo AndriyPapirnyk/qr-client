@@ -64,7 +64,7 @@ const Rating: React.FC = () => {
     return (
         <div className='rating'>
           <img onClick={handleBurger} className='burger' src={burger} alt="" />
-          <div className="holder">
+          {/* <div className="holder"> */}
           <div className="head_container">
             <h1 className='text_head'>Рейтинг</h1>
             </div>
@@ -77,7 +77,7 @@ const Rating: React.FC = () => {
                 </>
               ) : (<BounceLoader className='loader' color="#36d7b7" size={200}/>)}
             </div>
-          </div>
+          {/* </div> */}
             <Stack spacing={2} className='pagination-container'>
             <Pagination
                 count={totalPages}
