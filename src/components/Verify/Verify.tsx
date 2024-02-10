@@ -13,6 +13,7 @@ interface UserData {
   scanned: boolean;
   user: {
     count: number;
+    scans: number,
     lastScan: string;
     name: string;
     userId: string;
@@ -26,7 +27,7 @@ function Verify() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(true);
   const [postKey, setPostKey] = useState<boolean>(false);
-  const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, lastScan: "", name: "", userId: "", history: [], __v: 0, _id: "" } });
+  const [resData, setResData] = useState<UserData>({ scanned: false, user: { count: 0, scans: 0, lastScan: "", name: "", userId: "", history: [], __v: 0, _id: "" } });
 
   const getDeviceId = async () => {
     return new Promise<string>((resolve, _reject) => {

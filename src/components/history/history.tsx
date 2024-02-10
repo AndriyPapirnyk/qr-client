@@ -12,6 +12,7 @@ const HistoryPage: React.FC = () => {
     name: '',
     userId: 0,
     count: 0,
+    scans: 0,
     history: [],
     lastScan: '',
   });

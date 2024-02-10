@@ -9,6 +9,7 @@ const UserPage = () => {
     const [userObject, setUserObject] = useState({
         name: '',
         userId: 0,
+        scans: 0,
         count: 0,
         history: [],
         lastScan: '',
