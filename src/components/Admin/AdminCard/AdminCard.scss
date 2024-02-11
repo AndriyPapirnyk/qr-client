@@ -35,8 +35,8 @@
         margin: 0px 20px;
 
         img {
-            width: 100%;
-            height: 50%;
+            width: 80%;
+            height: auto;
             border-radius: 10px;
         }
 
@@ -87,7 +87,7 @@
         align-items: center;
         justify-content: space-between;
         p {
-            @include text(23px, black, 700)
+            @include text(2vw, black, 700)
         }
     }
 
@@ -110,7 +110,7 @@
 .admin__btn {
     @include text(18px, white, 600);
     cursor: pointer;
-    width: 190px;
+    width: 100%;
     height: 42px;
     background-color: rgb(27, 225, 27);
     border-radius: 8px;
@@ -120,5 +120,57 @@
     }
     &_red {
         background-color: rgb(232, 22, 22);
+    }
+}
+
+@media screen and (max-width: 825px) {
+    .admin__card-data__container{
+        h3{
+            font-size: 15px;    
+        }
+        p{
+            font-size: 15px;    
+        }
+        .data__text{
+            p{
+                font-size: 15px;    
+            }
+            span{
+                font-size: 15px;    
+            }
+        }
+        .admin__card-data__container{
+            .admin__card-btn__container{
+                .admin__card__productGroup{
+                    width: 100%!important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 639px ) {
+    .admin__card-data__container{
+        h3{
+            font-size: 2vw;    
+        }
+        p{
+            font-size: 2vw;    
+        }
+        .data__text{
+            p{
+                font-size: 2vw;    
+            }
+            span{
+                font-size: 2vw;    
+            }
+        }
+        .admin__card-data__container{
+            .admin__card-btn__container{
+                .admin__card__productGroup{
+                    width: 100%!important;
+                }
+            }
+        }
     }
 }

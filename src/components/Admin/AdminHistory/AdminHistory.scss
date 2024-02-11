@@ -50,3 +50,63 @@
     }
     }
 }
+
+
+@media screen and (max-width: 890px) {
+    .admin__history{
+        .admin__history__filter{
+            .admin__history__btn{
+                width: 150px;
+                font-size: 17px;
+            }
+            .admin__search{
+                .admin__search__img{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        height: 80%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .admin__history{
+        .admin__history__filter{
+            .admin__search{
+                .admin__search__inp{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 732px) {
+    .admin__history{
+        .admin__history__filter{
+            .admin__history__btn{
+                font-size: 15px;
+            }
+        }
+        .admin__search{
+            min-width: 150px;
+            width: 250px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .admin__history{
+        .admin__history__filter{
+            flex-direction: column;
+            .admin__history__btn{
+                margin:  10px 0;
+            }
+        }
+    }
+}

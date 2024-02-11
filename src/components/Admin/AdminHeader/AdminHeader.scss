@@ -10,7 +10,7 @@
 
     width: 100%;
     justify-content: space-between;
-    padding: 25px;
+    padding: 0 25px;
 
     h3 {
         @include text(21px, white, 700)
@@ -18,14 +18,15 @@
 
     .admin__header-container {
         @include center;
-        width: 19%;
         height: 100%;
         display: flex;
         justify-content: space-between;
 
         p {
             @include text(21px, white, 700);
-            transition: 1s
+            transition: 1s;
+            margin: 0 20px;
+            cursor: pointer;
         }
 
         ;
@@ -45,5 +46,23 @@
                 color: white;
             }
         }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .admin__header{
+        .admin__header-container{
+            p{
+                @include text(15px, white, 700);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .admin__header{
+        display: flex;
+        flex-direction: column;
+        height: 10vh;
     }
 }

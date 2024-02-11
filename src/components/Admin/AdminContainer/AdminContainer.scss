@@ -5,7 +5,7 @@
     min-height: 93vh;
     flex-wrap: wrap;
     border: none;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     &__row{
@@ -92,5 +92,12 @@
         height: 40px;
         border: 1px solid #000;
         margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .admin__container{
+        height: 90vh;
+        min-height: 90vh;
     }
 }
