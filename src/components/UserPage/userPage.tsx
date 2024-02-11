@@ -32,6 +32,7 @@ const UserPage = () => {
             try {
                 const parsedUserObject = JSON.parse(userCookieValue);
                 setUserObject(parsedUserObject);
+                console.log(parsedUserObject        )
             } catch (error) {
                 console.error('Error parsing user cookie value:', error);
             }
